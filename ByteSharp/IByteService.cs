@@ -46,5 +46,14 @@ namespace ByteSharp
         /// <returns></returns>
         [Post("/post/id/{videoId}/loop")]
         Task<Paging<ByteLoop>> LoopByte([AliasAs("videoId")] string videoId);
+
+        /// <summary>
+        /// Upload a byte.
+        /// </summary>
+        /// <param name="uploadPayload"></param>
+        /// <returns></returns>
+        [Headers("Content-Type: application/json")]
+        [Post("/upload")]
+        Task UploadByte([Body] ByteUploadPayload uploadPayload);
     }
 }
