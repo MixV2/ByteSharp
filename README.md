@@ -1,8 +1,8 @@
 # ByteSharp
 A .NET client library for Byte.
 
-## Example:
-An example program that lists through bytes on your following feed and logs information about each byte.
+## Example
+An example program that lists through bytes on your following feed and logs information about each byte:
 ```csharp
 using ByteSharp;
 using ByteSharp.Models;
