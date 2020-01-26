@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 
 namespace ByteSharp
 {
+    [Headers("User-Agent: byte/0.2 (co.byte.video; build:126; iOS 13.1.3) Alamofire/4.9.0")]
     public interface IByteService
     {
         /// <summary>
         /// The base URL for this service. Used on every request.
         /// </summary>
-        string BASE_URL
+        static string BASE_URL
         {
             get
             {
@@ -36,7 +37,7 @@ namespace ByteSharp
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>
-        [Get("{uri}")]
+        [Get("/feed/{uri}")]
         Task<Paging<ByteTimeline>> GetFeed([AliasAs("uri")] string uri);
 
         /// <summary>

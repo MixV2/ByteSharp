@@ -22,7 +22,7 @@ namespace ByteSharp.Models
             // Keep in mind that the video must be under 5MB to upload - otherwise, an error will be thrown.
             using (WebClient webClient = new WebClient())
             {
-                webClient.UploadFile(address, file);
+                webClient.UploadFile(address, "PUT", file);
             }
         }
     }
