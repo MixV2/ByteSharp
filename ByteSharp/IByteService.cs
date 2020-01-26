@@ -26,5 +26,8 @@ namespace ByteSharp
 
         [Get("/timeline")]
         Task<Paging<ByteTimeline>> GetTimeline();
+
+        [Get("/feed/{feedId}")]
+        Task<Paging<ByteTimeline>> GetFeed([AliasAs("feedId")] string feedId);
     }
 }
