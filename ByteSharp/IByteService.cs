@@ -24,10 +24,27 @@ namespace ByteSharp
         [Get("/account/me")]
         Task<Paging<ByteUser>> GetMyAccount();
 
+        /// <summary>
+        /// Gets a list of bytes from following list.
+        /// </summary>
+        /// <returns></returns>
         [Get("/timeline")]
         Task<Paging<ByteTimeline>> GetTimeline();
 
-        [Get("/feed/{feedId}")]
-        Task<Paging<ByteTimeline>> GetFeed([AliasAs("feedId")] string feedId);
+        /// <summary>
+        /// Gets a list of bytes from a category.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        [Get("{uri}")]
+        Task<Paging<ByteTimeline>> GetFeed([AliasAs("uri")] string uri);
+
+        /// <summary>
+        /// Loop a byte.
+        /// </summary>
+        /// <param name="videoId"></param>
+        /// <returns></returns>
+        [Post("/post/id/{videoId}/loop")]
+        Task<Paging<ByteLoop>> LoopByte([AliasAs("videoId")] string videoId);
     }
 }

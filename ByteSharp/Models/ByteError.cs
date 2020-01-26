@@ -3,7 +3,7 @@
 namespace ByteSharp.Models
 {
     /// <summary>
-    /// Represents a Byte-related error.
+    /// Represents a Byte related error.
     /// </summary>
     public struct ByteError
     {
