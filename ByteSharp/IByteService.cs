@@ -23,5 +23,8 @@ namespace ByteSharp
         /// <returns></returns>
         [Get("/account/me")]
         Task<Paging<ByteUser>> GetMyAccount();
+
+        [Get("/timeline")]
+        Task<Paging<ByteTimeline>> GetTimeline();
     }
 }
