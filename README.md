@@ -5,7 +5,7 @@ A .NET client library for Byte.
 An example program that lists through bytes on your following feed and logs information about each byte:
 ```csharp
 using ByteSharp;
-using ByteSharp.Models;
+using Refit;
 
 class Program
 {
@@ -23,7 +23,7 @@ class Program
         var timeline = await byteService.GetTimeline();
 
         // loops through bytes in your following feed and prints some information about each individual byte!
-        foreach (BytePost post in timeline.Data.Posts)
+        foreach (var post in timeline.Data.Posts)
         {
             Console.WriteLine("Post Caption: " + post.Caption);
             Console.WriteLine("Posted By: " + post.AuthorId);
