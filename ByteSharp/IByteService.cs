@@ -1,4 +1,5 @@
 ﻿using ByteSharp.Models;
+using Newtonsoft.Json.Linq;
 using Refit;
 using System.Threading.Tasks;
 
@@ -56,5 +57,28 @@ namespace ByteSharp
         [Headers("Content-Type: application/json")]
         [Post("/upload")]
         Task UploadByte([Body] ByteUploadPayload uploadPayload);
+
+        /// <summary>
+        /// Gets a list of accounts the authenticated user is following.
+        /// </summary>
+        /// <returns></returns>
+        [Get("/account/me/following")]
+        Task<Paging<ByteUser>> GetFollowing();
+
+        /// <summary>
+        /// Follows a user.
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <returns></returns>
+        [Post("/account/id/{accountId}/follow")]
+        Task<Paging<JObject>> FollowUser([AliasAs("accountId")] string accountId);
+
+        /// <summary>
+        /// Unfollows a user.
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <returns></returns>
+        [Delete("/account/id/{accountId}/follow")]
+        Task<Paging<JObject>> UnfollowUser([AliasAs("accountId")] string accountId);
     }
 }
