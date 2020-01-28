@@ -56,14 +56,14 @@ namespace ByteSharp
         /// <returns></returns>
         [Headers("Content-Type: application/json")]
         [Post("/upload")]
-        Task UploadByte([Body] ByteUploadPayload uploadPayload);
+        Task<Paging<ByteUpload>> UploadByte([Body] ByteUploadPayload uploadPayload);
 
         /// <summary>
         /// Gets a list of accounts the authenticated user is following.
         /// </summary>
         /// <returns></returns>
         [Get("/account/me/following")]
-        Task<Paging<ByteUser>> GetFollowing();
+        Task<Paging<ByteAccounts>> GetFollowing([AliasAs("cursor")] string cursor = null);
 
         /// <summary>
         /// Follows a user.
@@ -80,5 +80,13 @@ namespace ByteSharp
         /// <returns></returns>
         [Delete("/account/id/{accountId}/follow")]
         Task<Paging<JObject>> UnfollowUser([AliasAs("accountId")] string accountId);
+
+        /// <summary>
+        /// Posts a byte.
+        /// </summary>
+        /// <param name="postPayload"></param>
+        /// <returns></returns>
+        [Post("/post")]
+        Task<Paging<BytePost>> PostByte([Body] BytePostPayload postPayload);
     }
 }
