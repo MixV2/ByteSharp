@@ -35,3 +35,5 @@ class Program
     }
 }
 ```
+
+More code examples can be found in the [Examples](https://github.com/MixV2/ByteSharp/tree/master/Examples) section of the repository.
