@@ -96,5 +96,29 @@ namespace ByteSharp
         /// <returns></returns>
         [Get("/account/prefix/{displayName}")]
         Task<Paging<ByteAccounts>> GetAccountsByName([AliasAs("displayName")] string displayName);
+
+        /// <summary>
+        /// Post a comment on a byte.
+        /// </summary>
+        /// <param name="commentPayload"></param>
+        /// <returns></returns>
+        [Post("/post/id/{postId}/feedback/comment")]
+        Task<Paging<ByteComment>> Comment([Body] ByteCommentPayload commentPayload);
+
+        /// <summary>
+        /// Get a list of comments on a byte.
+        /// </summary>
+        /// <param name="cursor"></param>
+        /// <returns></returns>
+        [Get("/post/id/{postId}/feedback/comment")]
+        Task<Paging<ByteComments>> GetComments([AliasAs("cursor")] string cursor = null);
+
+        /// <summary>
+        /// Delete a comment on a byte.
+        /// </summary>
+        /// <param name="commentId"></param>
+        /// <returns></returns>
+        [Delete("/feedback/comment/id/{commentId}")]
+        Task<Paging<JObject>> DeleteComment([Body(BodySerializationMethod.Serialized)] [AliasAs("commentID")] string commentId);
     }
 }

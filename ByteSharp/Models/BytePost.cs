@@ -40,6 +40,24 @@ namespace ByteSharp.Models
     }
 
     /// <summary>
+    /// Represents a payload used to create a comment on a byte.
+    /// </summary>
+    public struct ByteCommentPayload
+    {
+        [JsonProperty("postID")] public string PostId;
+        [JsonProperty("body")] public string Body;
+    }
+
+    /// <summary>
+    /// Represents a list of comments on a byte.
+    /// </summary>
+    public struct ByteComments
+    {
+        [JsonProperty("accounts")] public ByteUser[] Accounts;
+        [JsonProperty("comments")] public ByteComment[] Comments;
+    }
+
+    /// <summary>
     /// Represents a user mention on a comment.
     /// </summary>
     public struct ByteMention
