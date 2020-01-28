@@ -88,5 +88,13 @@ namespace ByteSharp
         /// <returns></returns>
         [Post("/post")]
         Task<Paging<BytePost>> PostByte([Body] BytePostPayload postPayload);
+
+        /// <summary>
+        /// Get a list of accounts by display name.
+        /// </summary>
+        /// <param name="displayName"></param>
+        /// <returns></returns>
+        [Get("/account/prefix/{displayName}")]
+        Task<Paging<ByteAccounts>> GetAccountsByName([AliasAs("displayName")] string displayName);
     }
 }
